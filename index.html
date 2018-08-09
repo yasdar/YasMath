@@ -13,10 +13,28 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="apple-mobile-web-app-title" content="Phaser App">
         <meta name="viewport" content="initial-scale=1 maximum-scale=1 user-scalable=0 minimal-ui" />
+
+
+        <script src="js/phaser.min.js"></script>
+        <script src="js/YasMath.js"></script>
+
+        <script src="js/boot.js"></script>
+        <script src="js/preload.js"></script>
+        <script src="js/Main.js"></script>
+        <script src="js/app.js"></script>
+
 </head>
 <body>
 
-        
+    
+    <div id="gameCanvas"></div>
+    <script>
+    
+      window.onload = function () {
+        var _Game = new SimpleGame();
+      };
+    
+     </script>   
    
 
 </body>

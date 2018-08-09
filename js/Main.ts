@@ -1,4 +1,8 @@
 /// <reference path="phaser.d.ts"/>
+/// <reference path="app.ts"/>
+/// <reference path="Boot.ts"/>
+/// <reference path="preload.ts"/>
+/// <reference path="YasMath.ts"/>
 
 
 var Me:any;

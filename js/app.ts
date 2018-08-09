@@ -6,7 +6,7 @@
 class SimpleGame {
 
     constructor() {
-      this.game = new Phaser.Game(1200,800, Phaser.AUTO, 'gameCanvas', { preload: this.preload, create: this.create },true);
+      this.game = new Phaser.Game(1200,800, Phaser.AUTO, 'gameCanvas', { preload: this.preload, create: this.create },false);
        
     }
 

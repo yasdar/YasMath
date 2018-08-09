@@ -1,4 +1,8 @@
 /// <reference path="phaser.d.ts"/>
+/// <reference path="app.ts"/>
+/// <reference path="Boot.ts"/>
+/// <reference path="preload.ts"/>
+/// <reference path="YasMath.ts"/>
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }

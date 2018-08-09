@@ -19,6 +19,7 @@ var Main = (function (_super) {
     };
     Main.prototype.create = function () {
         console.log("* --------------------------- create Main *");
+        // first example lines_points
     };
     Main.prototype.render = function () {
         var FPS = (this.game.time.fps).toString();

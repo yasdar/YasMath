@@ -18,6 +18,8 @@ this.game.time.advancedTiming = true;
 create () {  
 console.log("* --------------------------- create Main *");
 
+// first example lines_points
+
 }render()
 {
     var FPS:string = (this.game.time.fps).toString();

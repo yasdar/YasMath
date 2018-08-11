@@ -2,6 +2,7 @@
 /// <reference path="app.ts"/>
 /// <reference path="Boot.ts"/>
 /// <reference path="preload.ts"/>
+/// <reference path="Menu.ts"/>
 /// <reference path="YasMath.ts"/>
 
 

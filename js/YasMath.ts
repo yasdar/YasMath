@@ -12,7 +12,11 @@ interface CartesianEquation {
     SelonY?:number;
 }
 
-
+interface Circle {
+    Radius:number;
+    Center:Point;
+    name?:string;
+}
 class YassMath {
   info:string = "Yassine Dardour Math Library";
   version:number = 1;
@@ -151,7 +155,75 @@ var H :Point = this.ProjectedOrthogonalOfAPoint(PointB,_PointO,_PointA);
 //disnace entre le point et s projection
 return this.DistanceBewteew2pts(PointB,H);
 }
+//ntersections entre deux cercles
+//intersections between two circles
+//http://math.15873.pagesperso-orange.fr/IntCercl.html
+TwoCerclesIntersections(C1:Circle,C2:Circle){
+    var P1:Point;
+    var P2:Point;
 
+if(C1.Center.x == C2.Center.x && C1.Center.y == C2.Center.y && C1.Radius == C2.Radius){console.log("Circle1 overlap circle2 intersection : the entire circle equation"); return;}
+//1 case C1.Center.y != C2.Center.y
+if(C1.Center.y != C2.Center.y){
+//console.log(C1,C2);
+var N = (  Math.pow(C2.Radius,2)-Math.pow(C1.Radius,2)-Math.pow(C2.Center.x,2)+Math.pow(C1.Center.x,2)-Math.pow(C2.Center.y,2)+Math.pow(C1.Center.y,2)   )/(2*(C1.Center.y-C2.Center.y));
+//console.log("N",N);
+var A = Math.pow( (C1.Center.x-C2.Center.x)/(C1.Center.y-C2.Center.y),2 )+1;
+//console.log("A",A);
+var B =  ( 2*C1.Center.y*(C1.Center.x-C2.Center.x)/(C1.Center.y-C2.Center.y) )   -(2*N*(C1.Center.x-C2.Center.x)/(C1.Center.y-C2.Center.y)) - (2*C1.Center.x);
+//console.log("B",B);
+var C =  Math.pow(C1.Center.x,2)+Math.pow(C1.Center.y,2)+Math.pow(N,2)-Math.pow(C1.Radius,2)-(2*C1.Center.y*N)
+//console.log("C",C);
+var Delta = Math.sqrt( Math.pow(B,2)-(4*A*C) );
+//console.log("Delta",Delta);
+var x1 = (-B+Delta) / (2*A);
+//console.log("x1",x1);
+var y1 = N -x1*(C1.Center.x-C2.Center.x)/(C1.Center.y-C2.Center.y );
+//console.log("y1",y1);
+
+var x2 = (-B-Delta) / (2*A);
+//console.log("x2",x2);
+var y2 = N -x2*(C1.Center.x-C2.Center.x)/(C1.Center.y-C2.Center.y );
+//console.log("y2",y2);
+
+
+if( !isNaN(x1) && !isNaN(y1) ){P1 = {x:x1,y:y1}};
+if( !isNaN(x2) && !isNaN(y2) ){P2 = {x:x2,y:y2}};
+
+}else{
+    //case 2 C1.Center.y == C2.Center.y
+
+    var A =1 ;
+   // console.log("A",A);
+    var B =  -2*C2.Center.y;
+   // console.log("B",B);
+    var X = (Math.pow(C2.Radius,2)-Math.pow(C1.Radius,2)-Math.pow(C2.Center.x,2)+Math.pow(C1.Center.x,2))/(2*(C1.Center.x-C2.Center.x));
+   // console.log("X",X);
+    
+    var C =  Math.pow(C2.Center.x,2)+Math.pow(X,2)-( 2*(C2.Center.x*X) )+Math.pow(C2.Center.y,2)-Math.pow(C2.Radius,2);
+
+  //  console.log("C",C);
+    var Delta = Math.sqrt( Math.pow(B,2)-(4*A*C) );
+  //  console.log("Delta",Delta);
+
+    var x1 = X;
+    //console.log("x1",x1);
+    var y1 = (-B+Delta) / (2*A)
+  //  console.log("y1",y1);
+    
+    var x2 = X;
+   // console.log("x2",x2);
+    var y2 = (-B-Delta) / (2*A)
+   // console.log("y2",y2);
+
+    if( !isNaN(x1) && !isNaN(y1) ){P1 = {x:x1,y:y1}};
+    if( !isNaN(x2) && !isNaN(y2) ){P2 = {x:x2,y:y2}};
+
+}
+return [P1,P2];
+
+
+}
 
 
 

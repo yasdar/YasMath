@@ -18,7 +18,7 @@ interface Circle {
     name?:string;
 }
 class YassMath {
-  info:string = "Yassine Dardour Math Library";
+  info:string = "Yassine Dardour Personal Math Library";
   version:number = 1;
   constructor(){
   console.log('%c '+this.info+" Version :"+this.version,'background: #000000; color: #FFFF00');
